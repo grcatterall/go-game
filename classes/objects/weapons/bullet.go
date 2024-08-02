@@ -55,7 +55,7 @@ func (b *Bullet) CheckCollision(target rl.Rectangle) bool {
 
 // SpawnBullet spawns a new bullet from the player's position
 func SpawnBullet(position rl.Vector2, isLeft bool) *Bullet {
-	bulletSpeed := rl.Vector2{X: 1, Y: 0} // Example speed, adjust as needed
+	bulletSpeed := rl.Vector2{X: 10, Y: 0} // Example speed, adjust as needed
 	if isLeft {
 		bulletSpeed.X = -bulletSpeed.X // Reverse direction if facing left
 	}

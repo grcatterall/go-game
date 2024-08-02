@@ -1,4 +1,4 @@
-module example/go-game
+module github.com/grcatterall/go-game
 
 go 1.22.2
 
