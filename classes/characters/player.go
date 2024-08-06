@@ -42,7 +42,7 @@ func NewPlayer(position rl.Vector2, frameSpeed float32) *Player {
 		IdleAnimation:      helpers.LoadAnimation(fmt.Sprintf("assets/characters/%s/Idle.png", mainSprite), frameSpeed, 128),
 		WalkingAnimation:   helpers.LoadAnimation(fmt.Sprintf("assets/characters/%s/Walk.png", mainSprite), frameSpeed, 128),
 		RunningAnimation:   helpers.LoadAnimation(fmt.Sprintf("assets/characters/%s/Run.png", mainSprite), frameSpeed, 128),
-		ShootingAnimation:  helpers.LoadAnimation(fmt.Sprintf("assets/characters/%s/Shot_1.png", mainSprite), 0.1, 128),
+		ShootingAnimation:  helpers.LoadAnimation(fmt.Sprintf("assets/characters/%s/Shot_1.png", mainSprite), 1, 128),
 		AttackingAnimation: helpers.LoadAnimation(fmt.Sprintf("assets/characters/%s/Attack.png", mainSprite), 0.1, 128),
 		CurrentAnimation:   nil,
 		Bullets:            []*weapons.Bullet{},
@@ -131,7 +131,7 @@ func (p *Player) updateActions() {
 		p.IsShooting = true
 		p.ShootingAnimation.CurrentFrame = 0
 		p.ShootingAnimation.FrameCounter = 0
-		p.Bullets = append(p.Bullets, weapons.SpawnBullet(rl.Vector2{X: p.Position.X + 1, Y: p.Position.Y}, p.IsLeft))
+		p.Bullets = append(p.Bullets, weapons.SpawnBullet(rl.Vector2{X: p.Position.X + 16, Y: p.Position.Y + 88}, p.IsLeft))
 
 	}
 

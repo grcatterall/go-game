@@ -66,16 +66,8 @@ func main() {
 	rl.SetTargetFPS(60)
 
 	for !rl.WindowShouldClose() {
-		rl.DrawText("wasd - shift sprint - left click shoot - right click melee", 100, 30, 20, rl.LightGray)
 
 		camera.Target = player.Position
-
-		// Update
-		player.Update(tileMap)
-
-		player.CheckCollisions(tileMap, camera)
-
-		enemy.Update()
 
 		// Start drawing
 		rl.BeginDrawing()
@@ -87,6 +79,14 @@ func main() {
 
 		parallaxBackground.Update(player.Position.X)
 		parallaxBackground.Draw()
+		rl.DrawText("< a d > - shift sprint - left click shoot - right click melee", 100, 30, 20, rl.Black)
+
+		// Update
+		player.Update(tileMap)
+
+		player.CheckCollisions(tileMap, camera)
+
+		enemy.Update()
 
 		tileMap.Draw()
 
